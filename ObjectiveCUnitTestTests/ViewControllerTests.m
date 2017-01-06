@@ -39,13 +39,13 @@
     
     NSString *result = [viewController URLEncoding:string];
     
-    NSLog(@"%@",result);
+    NSLog(@"Result: %@",result);
     
     XCTAssertTrue([result isEqualToString:expect]);
 }
 
 -(void) testURLEncodingWithEmptyString {
-    NSLog(@"testURLEncoding()");
+    NSLog(@"testURLEncodingWithEmptyString()");
     
     ViewController *viewController = [[ViewController alloc]init];
     
@@ -53,7 +53,19 @@
     
     NSString *result = [viewController URLEncoding:string];
     
-    NSLog(@"%@",result);
+    NSLog(@"Result: %@",result);
+    
+    XCTAssertTrue([result length] == 0);
+}
+
+-(void) testURLEncodingWithNilString {
+    NSLog(@"testURLEncodingWithNilString()");
+    
+    ViewController *viewController = [[ViewController alloc]init];
+    
+    NSString *result = [viewController URLEncoding:nil];
+    
+    NSLog(@"Result: %@",result);
     
     XCTAssertTrue([result length] == 0);
 }
